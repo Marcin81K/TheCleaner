@@ -27,7 +27,7 @@ files_list = os.listdir(MAIN_PATH)
 
 #print(files_list)
 
-# Grouping files from Download in the dictonary by extension as a key
+# Grouping files from Download in the dictionary by extension as a key
 for file in files_list:
     if os.path.isfile(os.path.join(MAIN_PATH,file)):
         extension = file.split('.')[-1]
