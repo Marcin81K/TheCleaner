@@ -6,6 +6,7 @@ IMAGE = ['img','png','ico','svg','jpg','jpeg', 'gif']
 APPS = ['exe','msi','bat']
 DOCS = ['doc','docx','pdf','xls','xlsx', 'txt', 'csv', 'html']
 CODE = ['xml','py','js']
+AUDIO = ['mp3','mp4', 'wav','ogg']
 
 path = R"C:\Users\$USERNAME\Downloads"
 MAIN_PATH = os.path.expandvars(path)
@@ -54,6 +55,9 @@ for f_extension, f_list in files_mapping.items():
     elif f_extension in CODE:
         for f in f_list:
             os.rename(os.path.join(MAIN_PATH,f), os.path.join(MAIN_PATH,'Code',f))
+    elif f_extension in AUDIO:
+        for f in f_list:
+            os.rename(os.path.join(MAIN_PATH,f), os.path.join(MAIN_PATH,'Audio',f))
     else:
         for f in f_list:
             os.rename(os.path.join(MAIN_PATH,f), os.path.join(MAIN_PATH,'Others',f))
