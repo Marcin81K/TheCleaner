@@ -29,9 +29,10 @@ files_list = os.listdir(MAIN_PATH)
 
 # Grouping files from Download in the dictonary by extension as a key
 for file in files_list:
-    extension = file.split('.')[-1]
-    print(extension)
-    files_mapping[extension].append(file)
+    if os.path.isfile(os.path.join(MAIN_PATH,file)):
+        extension = file.split('.')[-1]
+        print(extension)
+        files_mapping[extension].append(file)
 #print(files_mapping)
 
 for f_extension, f_list in files_mapping.items():
@@ -53,3 +54,6 @@ for f_extension, f_list in files_mapping.items():
     elif f_extension in CODE:
         for f in f_list:
             os.rename(os.path.join(MAIN_PATH,f), os.path.join(MAIN_PATH,'Code',f))
+    else:
+        for f in f_list:
+            os.rename(os.path.join(MAIN_PATH,f), os.path.join(MAIN_PATH,'Others',f))
